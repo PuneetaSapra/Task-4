@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_layout/widgets/author.dart';
-import 'package:portfolio_layout/widgets/houses.dart';
-import 'package:portfolio_layout/widgets/category_selector.dart';
-import 'package:portfolio_layout/widgets/selector_cat.dart';
+import 'package:navigation/characters.dart';
+import 'Author.dart';
+import 'houses.dart';
 
-void main() => runApp(const PotterHeads());
+import 'widgets/category_selector.dart';
+
+void main() => runApp(const MyApp());
+
+//this snippet is important for routing....
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      // title: 'Thrifty Cab Driver',
+      debugShowCheckedModeBanner: false,
+      home: PotterHeads(),
+    );
+  }
+}
 
 class PotterHeads extends StatefulWidget {
   const PotterHeads({Key? key}) : super(key: key);
@@ -21,13 +36,13 @@ class _PotterHeadsState extends State<PotterHeads> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            backgroundColor: Color.fromARGB(255, 8, 8, 8),
+            backgroundColor: const Color.fromARGB(255, 8, 8, 8),
             appBar: AppBar(
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'HP.jpeg',
+                    'HP.jpg',
                     fit: BoxFit.contain,
                     height: 45,
                   ),
@@ -36,7 +51,7 @@ class _PotterHeadsState extends State<PotterHeads> {
                       child: const Text('Hello PotterHead'))
                 ],
               ),
-              backgroundColor: Color.fromARGB(255, 10, 10, 10),
+              backgroundColor: const Color.fromARGB(255, 10, 10, 10),
               actions: [
                 IconButton(
                   icon: const Icon(Icons.search),
@@ -50,123 +65,113 @@ class _PotterHeadsState extends State<PotterHeads> {
                 Container(
                     margin: const EdgeInsets.all(10.0),
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: MaterialButton(
-                      color: Color.fromARGB(255, 5, 24, 9),
+                      color: const Color.fromARGB(255, 5, 24, 9),
                       height: 150.0,
                       minWidth: 625.0,
-                      textColor: Color.fromARGB(255, 255, 255, 255),
-                      child: new Text("KNOW ABOUT THE CHARACTERS"),
+                      textColor: const Color.fromARGB(255, 255, 255, 255),
+                      child: const Text("KNOW ABOUT THE CHARACTERS"),
                       //color: Color.fromARGB(255, 5, 34, 17),
                       onPressed: () => {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const BookRecommender(),
-                                settings: const RouteSettings()))
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CharacterScreen()),
+                          //      settings: const RouteSettings())
+                        )
                       },
-                      splashColor: Color.fromARGB(255, 131, 172, 140),
+                      splashColor: const Color.fromARGB(255, 131, 172, 140),
                     )),
                 Container(
                     margin: const EdgeInsets.all(10.0),
                     alignment: Alignment.topRight,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: MaterialButton(
-                      color: Color.fromARGB(255, 5, 24, 9),
+                      color: const Color.fromARGB(255, 5, 24, 9),
                       height: 150.0,
                       minWidth: 625.0,
-                      textColor: Color.fromARGB(255, 255, 255, 255),
-                      child: new Text("KNOW ABOUT THE HOUSES"),
+                      textColor: const Color.fromARGB(255, 255, 255, 255),
+                      child: const Text("KNOW ABOUT THE HOUSES"),
                       //color: Color.fromARGB(255, 5, 34, 17),
                       onPressed: () => {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const houses(),
-                            ))
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Houses()),
+                        ),
                       },
-                      splashColor: Color.fromARGB(255, 131, 172, 140),
+                      splashColor: const Color.fromARGB(255, 131, 172, 140),
                     )),
               ]),
               // children: <Widget>[
-              new Container(
+              Container(
                 color: Colors.grey[200],
-                child: new Image.asset('assets/HG.jpg'),
+                child: Image.asset('assets/HG.jpeg'),
                 alignment: Alignment.center,
               ),
-              // Container(
-              //   margin: const EdgeInsets.all(10.0),
-              //   alignment: Alignment.center,
-              //   padding: EdgeInsets.all(0.0),
-              //   decoration: const BoxDecoration(
-              //     image: DecorationImage(
-              //       image: AssetImage("HG.jpg"),
-              //     ),
-              //   ),
-              // ),
-              // Stack(children: <Widget>[
+
               Column(children: <Widget>[
-                // Row(children: <Widget>[
                 Container(
                     margin: const EdgeInsets.all(10.0),
                     alignment: Alignment.center,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: MaterialButton(
-                      color: Color.fromARGB(255, 5, 24, 9),
+                      color: const Color.fromARGB(255, 5, 24, 9),
                       height: 100.0,
                       minWidth: 600.0,
-                      textColor: Color.fromARGB(255, 255, 255, 255),
-                      child: new Text("KNOW ABOUT THE AUTHOR"),
+                      textColor: const Color.fromARGB(255, 255, 255, 255),
+                      child: const Text("KNOW ABOUT THE AUTHOR"),
                       onPressed: () => {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const author(),
+                              builder: (_) => const Author(),
                             ))
                       },
-                      splashColor: Color.fromARGB(255, 131, 172, 140),
+                      splashColor: const Color.fromARGB(255, 131, 172, 140),
                     )),
                 Container(
                     margin: const EdgeInsets.all(10.0),
                     alignment: Alignment.center,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: MaterialButton(
-                      color: Color.fromARGB(255, 5, 24, 9),
+                      color: const Color.fromARGB(255, 5, 24, 9),
                       height: 100.0,
                       minWidth: 600.0,
-                      textColor: Color.fromARGB(255, 255, 255, 255),
-                      child: new Text("TAKE A QUIZ TO TEST YOUR KNOWLEDGE"),
+                      textColor: const Color.fromARGB(255, 255, 255, 255),
+                      child: const Text("TAKE A QUIZ TO TEST YOUR KNOWLEDGE"),
                       //color: Color.fromARGB(255, 5, 34, 17),
                       onPressed: () => {},
-                      splashColor: Color.fromARGB(255, 131, 172, 140),
+                      splashColor: const Color.fromARGB(255, 131, 172, 140),
                     )),
                 Container(
                     margin: const EdgeInsets.all(10.0),
                     alignment: Alignment.center,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: MaterialButton(
-                      color: Color.fromARGB(255, 5, 24, 9),
+                      color: const Color.fromARGB(255, 5, 24, 9),
                       height: 100.0,
                       minWidth: 600.0,
-                      textColor: Color.fromARGB(255, 255, 255, 255),
-                      child: new Text("KNOW YOUR PATRONUS"),
+                      textColor: const Color.fromARGB(255, 255, 255, 255),
+                      child: const Text("KNOW YOUR PATRONUS"),
                       //color: Color.fromARGB(255, 5, 34, 17),
                       onPressed: () => {},
-                      splashColor: Color.fromARGB(255, 131, 172, 140),
+                      splashColor: const Color.fromARGB(255, 131, 172, 140),
                     )),
                 Container(
                     margin: const EdgeInsets.all(10.0),
                     alignment: Alignment.center,
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: MaterialButton(
-                      color: Color.fromARGB(255, 5, 24, 9),
+                      color: const Color.fromARGB(255, 5, 24, 9),
                       height: 100.0,
                       minWidth: 600.0,
-                      textColor: Color.fromARGB(255, 255, 255, 255),
-                      child: new Text("LEARN MORE ABOUT THE SERIES"),
+                      textColor: const Color.fromARGB(255, 255, 255, 255),
+                      child: const Text("LEARN MORE ABOUT THE SERIES"),
                       //color: Color.fromARGB(255, 5, 34, 17),
                       onPressed: () => {},
-                      splashColor: Color.fromARGB(255, 131, 172, 140),
+                      splashColor: const Color.fromARGB(255, 131, 172, 140),
                     )),
               ])
             ])));
