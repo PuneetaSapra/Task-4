@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_layout/widgets/author.dart';
-import 'package:portfolio_layout/widgets/houses.dart';
-import 'package:portfolio_layout/widgets/category_selector.dart';
-import 'package:portfolio_layout/widgets/selector_cat.dart';
-
 
 class CategorySelector extends StatefulWidget {
   @override
